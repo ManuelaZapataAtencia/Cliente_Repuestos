@@ -1,6 +1,6 @@
-﻿var oTabla = $("#tblProveedores").DataTable();
+﻿var oTabla = $("#tblVentas").DataTable();
 jQuery(function () {
-    $("#dvMenu").load("../../Paginas/Menu.html");
+    $("#dvMenu").load("../Paginas/Menu.html");
     //Invoca la función que llena el combo de tipos de producto
     LlenarComboCategoria();
     LlenarTablaRepuestos();
@@ -21,15 +21,15 @@ jQuery(function () {
 });
 
 async function LlenarTabla() {
-    LlenarTablaXServicios("http://localhost:53166/api/Repuesto", "#tblProveedores");
+    LlenarTablaXServicios("http://localhost:53166/api/Venta", "#tblVentas");
 }
 
 async function LlenarCombo() {
-    LlenarComboXServicios("http://localhost:53166/api/Categoria", "#cboCategoria");
+    LlenarComboXServicios("http://localhost:53166/api/Producto", "#cboProducto");
 }
 
 async function LlenarTablaRepuestos() {
-    //Invoca el método GET, del servicio de tipos de producto
+    
     //Solo se invoca el fetch
     try {
         const Respuesta = await fetch("http://localhost:53166/api/Categoria",
@@ -49,7 +49,7 @@ async function LlenarTablaRepuestos() {
             });
         }
         // Llenado de tabla
-        $("#tblRepuestos").DataTable({
+        $("#tblVentas").DataTable({
             data: Resultado,
             columns: Columnas,
             destroy: true
@@ -62,7 +62,7 @@ async function LlenarTablaRepuestos() {
 }
 
 async function LlenarComboCategoria() {
-    //Invoca el método GET, del servicio de tipos de producto
+    
     //Solo se invoca el fetch
     try {
         const Respuesta = await fetch("http://localhost:53166/api/Categoria",
@@ -74,10 +74,10 @@ async function LlenarComboCategoria() {
         //Leer la respuesta del servicio
         const Resultado = await Respuesta.json();
         //Presentar a respuesta en el html
-        //El resultado está en formato JSON con la lista de tipos de producto
+       
         //Se debe recorrer para llenar el combo
         for (i = 0; i < Resultado.length; i++) {
-            $("#cboCategoria").append('<option value="' + Resultado[i].codigo + '">' + Resultado[i].nombre + '</option>');
+            $("#cboProducto").append('<option value="' + Resultado[i].codigo + '">' + Resultado[i].nombre + '</option>');
         }
     }
     catch (_error) {
@@ -88,33 +88,33 @@ async function LlenarComboCategoria() {
 
 async function EjecutarComando(Comando) {
     //Se captura la información del empleado
-    let Codigo = $("#txtCodigo").val();
-    let Nombre = $("#txtNombre").val();
-    let Descripcion = $("#txtDescripcion").val();
-    let Precio = $("#txtPrecio").val();
-    let Categoria = $("#cboCategoria").val();
+    let id_venta = $("#txtCodigo").val();
+    let fecha_venta = $("#dtFechaVenta").val();
+    let codigo_repuesto = $("#cboRepuesto").val();
+    let cantidad = $("#txtCantidad").val();
+    let precio_total = $("#txtValor").val();
 
     //Crear la estructura json
-    let DatosRepuesto = {
-        Codigo: Codigo,
-        Nombre: Nombre,
-        Descripcion: Descripcion,
-        Precio: Precio,
-        CodigoCategoria: Categoria
+    let DatosVenta = {
+        id_venta: id_venta,
+        fecha_venta: fecha_venta,
+        codigo_repuesto: codigo_repuesto,
+        cantidad: cantidad,
+        precio_total: precio_total
     }
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Repuesto",
+        const Respuesta = await fetch("http://localhost:53166/api/Venta",
             {
                 method: Comando,
                 mode: "cors",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(DatosRepuesto)
+                body: JSON.stringify(DatosVenta)
             });
         //Se lee la respuesta y se convierte a json
         const Resultado = await Respuesta.json();
         // Volver a llenar la tabla para ver las actualizaciones
-        //LlenarTablaProductos();
+        
         //Presenta el resultado en el html
         $("#dvMensaje").html(Resultado);
     }
@@ -125,12 +125,12 @@ async function EjecutarComando(Comando) {
 }
 
 async function Consultar() {
-    //Solo se captura la información del documento del empleado y se invoca el servicio
-    let Codigo = $("#txtCodigo").val();
+    
+    let codigo = $("#txtCodigo").val();
     $("#dvMensaje").html("");
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Repuesto?codigo=" + Codigo,
+        const Respuesta = await fetch("http://localhost:53166/api/Venta?id_venta=" + codigo,
             {
                 method: "GET",
                 mode: "cors",
@@ -139,10 +139,10 @@ async function Consultar() {
         //Se lee la respuesta y se convierte a json
         const Resultado = await Respuesta.json();
         //Las respuestas se escriben en el html
-        $("#txtNombre").val(Resultado.Nombre);
-        $("#txtDescripcion").val(Resultado.Descripcion);
-        $("#txtPrecio").val(Resultado.Precio);
-        $("#cboCategoria").val(Resultado.CodigoCategoria);
+        $("#dtFechaVenta").val(Resultado.fecha_venta);
+        $("#txtCantidad").val(Resultado.cantidad);
+        $("#txtValor").val(Resultado.precio_total);
+        $("#cboRepuesto").val(Resultado.codigo_repuesto);
     }
     catch (error) {
         //Se presenta el error en el "dvMensaje" de la interfaz

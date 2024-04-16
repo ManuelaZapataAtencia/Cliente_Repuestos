@@ -1,11 +1,10 @@
 ﻿var oTabla = $("#tblRepuestos").DataTable();
 jQuery(function () {
-    $("#dvMenu").load("../../Paginas/Menu.html");
+    $("#dvMenu").load("../Paginas/Menu.html");
     //Invoca la función que llena el combo de tipos de producto
     LlenarComboCategoria();
     LlenarTablaRepuestos();
     LlenarTabla();
-    LenarCombo();
     $("#btnInsertar").on("click", function () {
         EjecutarComando("POST");
     });
@@ -22,10 +21,6 @@ jQuery(function () {
 
 async function LlenarTabla() {
     LlenarTablaXServicios("http://localhost:53166/api/Repuesto", "#tblRepuestos");
-}
-
-async function LlenarCombo() {
-    LlenarComboXServicios("http://localhost:53166/api/Categoria", "#cboCategoria");
 }
 
 async function LlenarTablaRepuestos() {
@@ -88,19 +83,19 @@ async function LlenarComboCategoria() {
 
 async function EjecutarComando(Comando) {
     //Se captura la información del empleado
-    let Codigo = $("#txtCodigo").val();
-    let Nombre = $("#txtNombre").val();
-    let Descripcion = $("#txtDescripcion").val();
-    let Precio = $("#txtPrecio").val();
-    let Categoria = $("#cboCategoria").val();
+    let codigo = $("#txtCodigo").val();
+    let nombre = $("#txtNombre").val();
+    let descripcion = $("#txtDescripcion").val();
+    let precio = $("#txtPrecio").val();
+    let categoria = $("#cboCategoria").val();
 
     //Crear la estructura json
     let DatosRepuesto = {
-        Codigo: Codigo,
-        Nombre: Nombre,
-        Descripcion: Descripcion,
-        Precio: Precio,
-        CodigoCategoria: Categoria
+        codigo: codigo,
+        nombre: nombre,
+        descripcion: descripcion,
+        precio: precio,
+        codigo_categoria: categoria
     }
     //Fetch para grabar en la base de datos
     try {
@@ -126,11 +121,11 @@ async function EjecutarComando(Comando) {
 
 async function Consultar() {
     //Solo se captura la información del documento del empleado y se invoca el servicio
-    let Codigo = $("#txtCodigo").val();
+    let codigo = $("#txtCodigo").val();
     $("#dvMensaje").html("");
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Repuesto?codigo=" + Codigo,
+        const Respuesta = await fetch("http://localhost:53166/api/Repuesto?codigo=" + codigo,
             {
                 method: "GET",
                 mode: "cors",
@@ -139,10 +134,10 @@ async function Consultar() {
         //Se lee la respuesta y se convierte a json
         const Resultado = await Respuesta.json();
         //Las respuestas se escriben en el html
-        $("#txtNombre").val(Resultado.Nombre);
-        $("#txtDescripcion").val(Resultado.Descripcion);
-        $("#txtPrecio").val(Resultado.Precio);
-        $("#cboCategoria").val(Resultado.CodigoCategoria);
+        $("#txtNombre").val(Resultado.nombre);
+        $("#txtDescripcion").val(Resultado.descripcion);
+        $("#txtPrecio").val(Resultado.precio);
+        $("#cboCategoria").val(Resultado.codigo_categoria);
     }
     catch (error) {
         //Se presenta el error en el "dvMensaje" de la interfaz

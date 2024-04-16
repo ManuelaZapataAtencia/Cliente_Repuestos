@@ -1,11 +1,10 @@
 ﻿var oTabla = $("#tblProveedores").DataTable();
 jQuery(function () {
-    $("#dvMenu").load("../../Paginas/Menu.html");
+    $("#dvMenu").load("../Paginas/Menu.html");
     //Invoca la función que llena el combo de tipos de producto
-    LlenarComboCategoria();
-    LlenarTablaRepuestos();
+    LlenarComboCiudad();
+    LlenarTablaProveedores();
     LlenarTabla();
-    LenarCombo();
     $("#btnInsertar").on("click", function () {
         EjecutarComando("POST");
     });
@@ -21,18 +20,18 @@ jQuery(function () {
 });
 
 async function LlenarTabla() {
-    LlenarTablaXServicios("http://localhost:53166/api/Repuesto", "#tblProveedores");
+    LlenarTablaXServicios("http://localhost:53166/api/Proveedor", "#tblProveedores");
 }
 
 async function LlenarCombo() {
-    LlenarComboXServicios("http://localhost:53166/api/Categoria", "#cboCategoria");
+    LlenarComboXServicios("http://localhost:53166/api/Ciudad", "#cboCiudad");
 }
 
-async function LlenarTablaRepuestos() {
+async function LlenarTablaProveedores() {
     //Invoca el método GET, del servicio de tipos de producto
     //Solo se invoca el fetch
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Categoria",
+        const Respuesta = await fetch("http://localhost:53166/api/Ciudad",
             {
                 method: "GET",
                 mode: "cors",
@@ -61,11 +60,11 @@ async function LlenarTablaRepuestos() {
     }
 }
 
-async function LlenarComboCategoria() {
+async function LlenarComboCiudad() {
     //Invoca el método GET, del servicio de tipos de producto
     //Solo se invoca el fetch
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Categoria",
+        const Respuesta = await fetch("http://localhost:53166/api/Ciudad",
             {
                 method: "GET",
                 mode: "cors",
@@ -77,7 +76,7 @@ async function LlenarComboCategoria() {
         //El resultado está en formato JSON con la lista de tipos de producto
         //Se debe recorrer para llenar el combo
         for (i = 0; i < Resultado.length; i++) {
-            $("#cboCategoria").append('<option value="' + Resultado[i].codigo + '">' + Resultado[i].nombre + '</option>');
+            $("#cboCiudad").append('<option value="' + Resultado[i].codigo + '">' + Resultado[i].nombre + '</option>');
         }
     }
     catch (_error) {
@@ -88,28 +87,26 @@ async function LlenarComboCategoria() {
 
 async function EjecutarComando(Comando) {
     //Se captura la información del empleado
-    let Codigo = $("#txtCodigo").val();
-    let Nombre = $("#txtNombre").val();
-    let Descripcion = $("#txtDescripcion").val();
-    let Precio = $("#txtPrecio").val();
-    let Categoria = $("#cboCategoria").val();
+
+    let nombre = $("#txtNombre").val();
+    let telefono = $("#txtTelefono").val();
+    let codigo_ciudad = $("#cboCiudad").val();
 
     //Crear la estructura json
-    let DatosRepuesto = {
-        Codigo: Codigo,
-        Nombre: Nombre,
-        Descripcion: Descripcion,
-        Precio: Precio,
-        CodigoCategoria: Categoria
+    let DatosProveedor = {
+        id: id,
+        nombre: nombre,
+        telefono: telefono,
+        codigo_ciudad: codigo_ciudad
     }
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Repuesto",
+        const Respuesta = await fetch("http://localhost:53166/api/Proveedor",
             {
                 method: Comando,
                 mode: "cors",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(DatosRepuesto)
+                body: JSON.stringify(DatosProveedor)
             });
         //Se lee la respuesta y se convierte a json
         const Resultado = await Respuesta.json();
@@ -126,11 +123,11 @@ async function EjecutarComando(Comando) {
 
 async function Consultar() {
     //Solo se captura la información del documento del empleado y se invoca el servicio
-    let Codigo = $("#txtCodigo").val();
+    let id = $("#txtCodigo").val();
     $("#dvMensaje").html("");
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Repuesto?codigo=" + Codigo,
+        const Respuesta = await fetch("http://localhost:53166/api/Proveedor?id=" + id,
             {
                 method: "GET",
                 mode: "cors",
@@ -139,10 +136,9 @@ async function Consultar() {
         //Se lee la respuesta y se convierte a json
         const Resultado = await Respuesta.json();
         //Las respuestas se escriben en el html
-        $("#txtNombre").val(Resultado.Nombre);
-        $("#txtDescripcion").val(Resultado.Descripcion);
-        $("#txtPrecio").val(Resultado.Precio);
-        $("#cboCategoria").val(Resultado.CodigoCategoria);
+        $("#txtNombre").val(Resultado.nombre);
+        $("#txtTelefono").val(Resultado.telefono);
+        $("#cboCiudad").val(Resultado.codigo_ciudad);
     }
     catch (error) {
         //Se presenta el error en el "dvMensaje" de la interfaz

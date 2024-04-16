@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PRODUCTO</title>
+    <title>Ventas</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link href="Estilos/css/all.min.css" rel="stylesheet" />
@@ -40,8 +41,16 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtFechaVenta">FECHA VENTA</label>
-                                                    <input type="date" class="form-control" id="txtFechaVenta" placeholder="Fecha Venta">
+                                                    <label for="dtFechaVenta">FECHA VENTA</label>
+                                                    <input type="date" class="form-control" id="dtFechaVenta" placeholder="Fecha Venta">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="cboRepuesto">Repuesto</label>
+                                                    <select id="cboRepuesto" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -54,16 +63,6 @@
                                                 <div class="form-group">
                                                     <label for="txtValor">VALOR TOTAL</label>
                                                     <input type="text" class="form-control" id="txtValor" placeholder="Valor Total">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cboCiudad">CIUDAD</label>
-                                                    <select id="cboCiudad" class="form-control">
-                                                        <option value="0">SELECCIONAR</option>
-                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,11 +86,12 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <table id="tblProveedores" class="table table-bordered table-striped" style="width:100%;">
+                                                <table id="tblVentas" class="table table-bordered table-striped" style="width:100%;">
                                                     <thead>
                                                         <tr>
                                                             <th>Codigo</th>
                                                             <th>Fecha de venta</th>
+                                                            <th>Cod. Repuesto</th>
                                                             <th>Cantidad</th>
                                                             <th>Valor Total</th>
                                                         </tr>
