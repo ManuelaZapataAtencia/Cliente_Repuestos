@@ -1,0 +1,106 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\APP y Servicios WEB\\Proyecto_Repuestos\\proyecto-servicios-main\\PROYECTO-SERVICIOS\\Cliente_Repuestos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F9A4D93F-823A-4BD5-8A5E-EC5ACE8A0CE8}|Cliente_Repuestos\\Cliente_Repuestos.csproj|c:\\app y servicios web\\proyecto_repuestos\\proyecto-servicios-main\\proyecto-servicios\\cliente_repuestos\\cliente_repuestos\\paginas\\planes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9A4D93F-823A-4BD5-8A5E-EC5ACE8A0CE8}|Cliente_Repuestos\\Cliente_Repuestos.csproj|solutionrelative:cliente_repuestos\\paginas\\planes.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9A4D93F-823A-4BD5-8A5E-EC5ACE8A0CE8}|Cliente_Repuestos\\Cliente_Repuestos.csproj|c:\\app y servicios web\\proyecto_repuestos\\proyecto-servicios-main\\proyecto-servicios\\cliente_repuestos\\cliente_repuestos\\paginas\\proveedores.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F9A4D93F-823A-4BD5-8A5E-EC5ACE8A0CE8}|Cliente_Repuestos\\Cliente_Repuestos.csproj|solutionrelative:cliente_repuestos\\paginas\\proveedores.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Planes.html",
+              "DocumentMoniker": "C:\\APP y Servicios WEB\\Proyecto_Repuestos\\proyecto-servicios-main\\PROYECTO-SERVICIOS\\Cliente_Repuestos\\Cliente_Repuestos\\Paginas\\Planes.html",
+              "RelativeDocumentMoniker": "Cliente_Repuestos\\Paginas\\Planes.html",
+              "ToolTip": "C:\\APP y Servicios WEB\\Proyecto_Repuestos\\proyecto-servicios-main\\PROYECTO-SERVICIOS\\Cliente_Repuestos\\Cliente_Repuestos\\Paginas\\Planes.html",
+              "RelativeToolTip": "Cliente_Repuestos\\Paginas\\Planes.html",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-04-16T01:44:48.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Proveedores.html",
+              "DocumentMoniker": "C:\\APP y Servicios WEB\\Proyecto_Repuestos\\proyecto-servicios-main\\PROYECTO-SERVICIOS\\Cliente_Repuestos\\Cliente_Repuestos\\Paginas\\Proveedores.html",
+              "RelativeDocumentMoniker": "Cliente_Repuestos\\Paginas\\Proveedores.html",
+              "ToolTip": "C:\\APP y Servicios WEB\\Proyecto_Repuestos\\proyecto-servicios-main\\PROYECTO-SERVICIOS\\Cliente_Repuestos\\Cliente_Repuestos\\Paginas\\Proveedores.html",
+              "RelativeToolTip": "Cliente_Repuestos\\Paginas\\Proveedores.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-04-16T01:44:37.571Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
