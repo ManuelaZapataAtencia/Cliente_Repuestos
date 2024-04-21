@@ -24,7 +24,7 @@ async function LlenarTabla() {
 }
 
 async function LlenarCombo() {
-    LlenarComboXServicios("http://localhost:53166/api/ListarRepuesto", "#cboRepuesto");
+    LlenarComboXServicios("http://localhost:53166/api/ListRepuesto", "#cboRepuesto");
 }
 
 async function LlenarTablaVentas() {
@@ -64,7 +64,7 @@ async function LlenarComboRepuesto() {
     
     //Solo se invoca el fetch
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/ListarRepuesto",
+        const Respuesta = await fetch("http://localhost:53166/api/ListaRepuesto",
             {
                 method: "GET",
                 mode: "cors",

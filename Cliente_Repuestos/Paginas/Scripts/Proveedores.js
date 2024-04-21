@@ -87,7 +87,7 @@ async function LlenarComboCiudad() {
 
 async function EjecutarComando(Comando) {
     //Se captura la información del empleado
-
+    let id = $("#txtCodigo").val();
     let nombre = $("#txtNombre").val();
     let telefono = $("#txtTelefono").val();
     let codigo_ciudad = $("#cboCiudad").val();
@@ -127,7 +127,7 @@ async function Consultar() {
     $("#dvMensaje").html("");
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Proveedor?id=" + id,
+        const Respuesta = await fetch("http://localhost:53166/api/Proveedor/" + id,
             {
                 method: "GET",
                 mode: "cors",

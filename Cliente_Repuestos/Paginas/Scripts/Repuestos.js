@@ -3,7 +3,7 @@ jQuery(function () {
     $("#dvMenu").load("../Paginas/Menu.html");
     //Invoca la función que llena el combo de tipos de producto
     LlenarComboCategoria();
-    LlenarTablaRepuestos();
+    //LlenarTablaRepuestos();
     LlenarTabla();
     $("#btnInsertar").on("click", function () {
         EjecutarComando("POST");
