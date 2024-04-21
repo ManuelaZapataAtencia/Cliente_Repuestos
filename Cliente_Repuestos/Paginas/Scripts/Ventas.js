@@ -2,10 +2,9 @@
 jQuery(function () {
     $("#dvMenu").load("../Paginas/Menu.html");
     //Invoca la función que llena el combo de tipos de producto
-    LlenarComboCategoria();
-    LlenarTablaRepuestos();
+    LlenarComboRepuesto();
+    LlenarTablaVentas();
     LlenarTabla();
-    LenarCombo();
     $("#btnInsertar").on("click", function () {
         EjecutarComando("POST");
     });
@@ -21,18 +20,18 @@ jQuery(function () {
 });
 
 async function LlenarTabla() {
-    LlenarTablaXServicios("http://localhost:53166/api/Venta", "#tblVentas");
+    LlenarTablaXServicios("http://localhost:53166/api/Ventas", "#tblVentas");
 }
 
 async function LlenarCombo() {
-    LlenarComboXServicios("http://localhost:53166/api/Producto", "#cboProducto");
+    LlenarComboXServicios("http://localhost:53166/api/ListarRepuesto", "#cboRepuesto");
 }
 
-async function LlenarTablaRepuestos() {
+async function LlenarTablaVentas() {
     
     //Solo se invoca el fetch
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Categoria",
+        const Respuesta = await fetch("http://localhost:53166/api/Ventas",
             {
                 method: "GET",
                 mode: "cors",
@@ -61,11 +60,11 @@ async function LlenarTablaRepuestos() {
     }
 }
 
-async function LlenarComboCategoria() {
+async function LlenarComboRepuesto() {
     
     //Solo se invoca el fetch
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Categoria",
+        const Respuesta = await fetch("http://localhost:53166/api/ListarRepuesto",
             {
                 method: "GET",
                 mode: "cors",
@@ -77,7 +76,7 @@ async function LlenarComboCategoria() {
        
         //Se debe recorrer para llenar el combo
         for (i = 0; i < Resultado.length; i++) {
-            $("#cboProducto").append('<option value="' + Resultado[i].codigo + '">' + Resultado[i].nombre + '</option>');
+            $("#cboRepuesto").append('<option value="' + Resultado[i].codigo + '">' + Resultado[i].nombre + '</option>');
         }
     }
     catch (_error) {
@@ -92,19 +91,17 @@ async function EjecutarComando(Comando) {
     let fecha_venta = $("#dtFechaVenta").val();
     let codigo_repuesto = $("#cboRepuesto").val();
     let cantidad = $("#txtCantidad").val();
-    let precio_total = $("#txtValor").val();
 
     //Crear la estructura json
     let DatosVenta = {
         id_venta: id_venta,
         fecha_venta: fecha_venta,
         codigo_repuesto: codigo_repuesto,
-        cantidad: cantidad,
-        precio_total: precio_total
+        cantidad: cantidad
     }
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Venta",
+        const Respuesta = await fetch("http://localhost:53166/api/Ventas",
             {
                 method: Comando,
                 mode: "cors",
@@ -130,7 +127,7 @@ async function Consultar() {
     $("#dvMensaje").html("");
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Venta?id_venta=" + codigo,
+        const Respuesta = await fetch("http://localhost:53166/api/Ventas/" + codigo,
             {
                 method: "GET",
                 mode: "cors",
