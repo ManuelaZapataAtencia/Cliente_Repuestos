@@ -87,16 +87,18 @@ async function LlenarComboCiudad() {
 
 async function EjecutarComando(Comando) {
     //Se captura la información del empleado
-    let id = $("#txtCodigo").val();
+    let nit = $("#txtNit").val();
     let nombre = $("#txtNombre").val();
     let telefono = $("#txtTelefono").val();
+    let correo = $("#txtCorreo").val();
     let codigo_ciudad = $("#cboCiudad").val();
 
     //Crear la estructura json
     let DatosProveedor = {
-        id: id,
+        nit: nit,
         nombre: nombre,
         telefono: telefono,
+        correo: correo,
         codigo_ciudad: codigo_ciudad
     }
     //Fetch para grabar en la base de datos
@@ -123,11 +125,11 @@ async function EjecutarComando(Comando) {
 
 async function Consultar() {
     //Solo se captura la información del documento del empleado y se invoca el servicio
-    let id = $("#txtCodigo").val();
+    let nit = $("#txtNit").val();
     $("#dvMensaje").html("");
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Proveedor/" + id,
+        const Respuesta = await fetch("http://localhost:53166/api/Proveedor/" + nit,
             {
                 method: "GET",
                 mode: "cors",
@@ -138,6 +140,7 @@ async function Consultar() {
         //Las respuestas se escriben en el html
         $("#txtNombre").val(Resultado.nombre);
         $("#txtTelefono").val(Resultado.telefono);
+        $("#txtCorreo").val(Resultado.correo);
         $("#cboCiudad").val(Resultado.codigo_ciudad);
     }
     catch (error) {

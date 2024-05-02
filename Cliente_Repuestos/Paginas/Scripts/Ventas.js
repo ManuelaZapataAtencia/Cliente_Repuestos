@@ -86,8 +86,7 @@ async function LlenarComboRepuesto() {
 }
 
 async function EjecutarComando(Comando) {
-    //Se captura la información del empleado
-    let id_venta = $("#txtCodigo").val();
+    
     let fecha_venta = $("#dtFechaVenta").val();
     let codigo_repuesto = $("#cboRepuesto").val();
     let cantidad = $("#txtCantidad").val();
