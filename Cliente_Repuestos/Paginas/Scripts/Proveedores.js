@@ -129,7 +129,7 @@ async function Consultar() {
     $("#dvMensaje").html("");
     //Fetch para grabar en la base de datos
     try {
-        const Respuesta = await fetch("http://localhost:53166/api/Proveedor/" + nit,
+        const Respuesta = await fetch("http://localhost:53166/api/Proveedor?nit=" + nit,
             {
                 method: "GET",
                 mode: "cors",

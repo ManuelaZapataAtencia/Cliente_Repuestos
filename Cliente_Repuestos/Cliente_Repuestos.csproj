@@ -125,8 +125,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Img\img1.jpg" />
+    <Content Include="Img\img2.jpg" />
+    <Content Include="Img\img3.jpg" />
     <Content Include="Paginas\Estilos\bootstrap.css.map" />
     <Content Include="Paginas\Estilos\bootstrap.min.css.map" />
+    <Content Include="Paginas\Estilos\css\slides.css" />
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.eot" />
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.ttf" />
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.woff" />
@@ -176,13 +180,12 @@
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
     <Content Include="Paginas\Menu.html" />
-    <Content Include="Paginas\Planes.html" />
+    <Content Include="Paginas\Index.html" />
     <Content Include="Paginas\Proveedores.html" />
     <Content Include="Paginas\Repuestos.html" />
     <Content Include="Paginas\Scripts\Comunes\Combos.js" />
     <Content Include="Paginas\Scripts\Comunes\Comunes.js" />
     <Content Include="Paginas\Scripts\Comunes\Tablas.js" />
-    <Content Include="Paginas\Scripts\Planes.js" />
     <Content Include="Paginas\Scripts\Proveedores.js" />
     <Content Include="Paginas\Scripts\Repuestos.js" />
     <Content Include="Paginas\Scripts\Ventas.js" />
@@ -193,6 +196,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery.slides.js" />
+    <Content Include="Scripts\jquery.slides.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />

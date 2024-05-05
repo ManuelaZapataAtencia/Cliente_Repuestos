@@ -1,0 +1,55 @@
+﻿.diapositiva {
+    width: 90%;
+    max-width: 1000px;
+    margin: 235px auto;
+}
+
+.slides {
+    width: 100%;
+}
+
+    .slides img {
+        width: 100%;
+    }
+
+.slidesjs-pagination {
+    background: #170B3B;
+    list-style: none;
+    overflow: hidden;
+}
+
+    .slidesjs-pagination li {
+        float: left;
+    }
+
+        .slidesjs-pagination li a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            font-family: "Arial";
+            text-decoration: none;
+        }
+
+            .slidesjs-pagination li a:hover {
+                background: #8A0808;
+                transition: all .3s;
+            }
+
+.slides .active {
+    background: #000;
+}
+
+.slidesjs-navigation {
+    background: #000;
+    color: #fff;
+    font-family: "Arial";
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    float: right;
+}
+
+    .slidesjs-navigation:hover {
+        background: #8A0808;
+        transition: all .3s;
+    }
