@@ -1,18 +1,70 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="en" data-bs-theme="auto">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Repuestos</title>
+    <title>Repuestos Motos</title>
     <!-- Google Font: Source Sans Pro -->
+
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link href="Estilos/css/all.min.css" rel="stylesheet" />
-    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <link href="Estilos/css/menu.css" rel="stylesheet" />
+    <!--<link href="Estilos/css/menu.rtl.css" rel="stylesheet" />-->
     <!--Estilos para las tablas-->
-    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
-    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link href="Estilos/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        body {
+            background-image: url('estilos/imagenes/bg.jpg');
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+            .nav-scroller .nav {
+                display: flex;
+                flex-wrap: nowrap;
+                padding-bottom: 1rem;
+                margin-top: -1px;
+                overflow-x: auto;
+                text-align: center;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #154360;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #154360;
+            --bs-btn-hover-border-color: #154360;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #154360;
+            --bs-btn-active-border-color: #154360;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+
 </head>
-<body class="hold-transition sidebar-mini">
+<body>
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -22,92 +74,87 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">ADMINISTRACIÓN DE REPUESTOS</h3>
+                            <h3 class="card-title">Administración de repuestos</h3>
                         </div>
-                        <form id="frmIncapacidades">
-                            <div class="card-body">
-                                <div class="card card-gray-dark">
-                                    <div class="card-header">
-                                        <h3 class="card-title">DATOS ENTRADA</h3>
-                                    </div>
-                                    <div class="card-body">
+                        <div class="card-body">
+                            <div class="card card-gray-dark">
+                                <div class="card-header">
+                                    <h3 class="card-title">Datos entrada</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form id="frmIncapacidades">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCodigo">CÓDIGO</label>
+                                                    <label for="txtCodigo">Código</label>
                                                     <input type="text" class="form-control" id="txtCodigo" placeholder="Código">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtNombre">NOMBRE</label>
+                                                    <label for="txtNombre">Nombre</label>
                                                     <input type="text" class="form-control" id="txtNombre" placeholder="Nombre">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="txtDescripcion">DESCRIPCIÓN</label>
+                                                    <label for="txtDescripcion">Descripción</label>
                                                     <input type="text" class="form-control" id="txtDescripcion" placeholder="Descripción">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="txtPrecio">PRECIO</label>
-                                                    <input type="number" class="form-control" id="txtPrecio" placeholder="Precio">
-                                                </div>
-                                            </div>
-
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="cboCategoria">CATEGORIA</label>
+                                                    <label for="cboCategoria">Categoría</label>
                                                     <select id="cboCategoria" class="form-control">
                                                         <option value="0">SELECCIONAR</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-primary">INSERTAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary">ACTUALIZAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-primary">ELIMINAR</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-primary">CONSULTAR</button>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="txtPrecio">Precio</label>
+                                                    <input type="number" class="form-control" id="txtPrecio" placeholder="Precio">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <table id="tblRepuestos" class="table table-bordered table-striped" style="width:100%;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Código</th>
-                                                            <th>Repuesto</th>
-                                                            <th>Descripción</th>
-                                                            <th>Categoria</th>
-                                                            <th>Precio</th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-custom rounded-pill shadow">Insertar</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-custom rounded-pill shadow">Actualizar</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-custom rounded-pill shadow">Eliminar</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-custom rounded-pill shadow">Consultar</button>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div id="dvMensaje" class=""></div>
+                                    </form>
+                                    <br>
+                                    <table id="tblRepuestos" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Repuesto</th>
+                                                <th>Descripción</th>
+                                                <th>Categoria</th>
+                                                <th>Precio</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
                                 </div>
                             </div>
-                        </form>
+                            <div class="card-footer">
+                                <div id="dvMensaje" class=""></div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
