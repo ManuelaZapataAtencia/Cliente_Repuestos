@@ -4,9 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ventas</title>
+    <title>Proveedores</title>
     <!-- Google Font: Source Sans Pro -->
+
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    
     <!--<link href="Estilos/css/menu.rtl.css" rel="stylesheet" />-->
     <!--Estilos para las tablas-->
 
@@ -18,6 +21,7 @@
 
     <style>
 
+        
 
         .nav-scroller {
             position: relative;
@@ -69,7 +73,7 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Detalles de la venta</h3>
+                            <h3 class="card-title">Gestión de proveedores</h3>
                         </div>
                         <div class="card-body">
                             <div class="card card-gray-dark">
@@ -81,34 +85,16 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCodigo">Código venta</label>
-                                                    <input type="text" class="form-control" id="txtCodigo" placeholder="Código">
+                                                    <label for="txtCodigo">Codigo</label>
+                                                    <input type="text" class="form-control" id="txtCodigo" placeholder="Codigo">
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="dtFechaVenta">Fecha venta</label>
-                                                    <input type="date" class="form-control" id="dtFechaVenta" placeholder="Fecha Venta">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cboRepuesto">Repuesto</label>
-                                                    <select id="cboRepuesto" class="form-control">
-                                                        <option value="0">SELECCIONAR</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="txtCantidad">Cantidad</label>
-                                                    <input type="text" class="form-control" id="txtCantidad" placeholder="Cantidad">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="txtValor">Valor total</label>
-                                                    <input type="text" class="form-control" id="txtValor" placeholder="Valor Total" disabled>
+                                                    <label for="txtNombre">Nombre</label>
+                                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre">
                                                 </div>
                                             </div>
                                         </div>
@@ -117,45 +103,19 @@
                                                 <br />
                                                 <button type="button" id="btnInsertar" class="btn-block btn-lg btn-custom rounded-pill shadow">Insertar</button>
                                             </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-custom rounded-pill shadow">Actualizar</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-custom rounded-pill shadow">Eliminar</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-custom rounded-pill shadow">Consultar</button>
-                                            </div>
                                         </div>
                                     </form>
                                     <br>
-                                    <table id="tblVentas" class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Código</th>
-                                                <th>Fecha de venta</th>
-                                                <th>Repuesto</th>
-                                                <th>Cantidad</th>
-                                                <th>Precio</th>
-                                                <th>Valor Total</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div id="dvMensaje" class=""></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
@@ -166,7 +126,6 @@
     <script src="Scripts/Comunes/Tablas.js"></script>
     <script src="Scripts/Comunes/Combos.js"></script>
     <!--Archivos de la página-->
-    <script src="Scripts/Ventas.js"></script>
-
+    <script src="Scripts/Categorias.js"></script>
 </body>
 </html>

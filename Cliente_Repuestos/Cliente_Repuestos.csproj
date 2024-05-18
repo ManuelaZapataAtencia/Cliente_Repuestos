@@ -128,6 +128,9 @@
     <Content Include="Img\img1.jpg" />
     <Content Include="Img\img2.jpg" />
     <Content Include="Img\img3.jpg" />
+    <Content Include="Paginas\Categorias.html" />
+    <Content Include="Paginas\Ciudades.html" />
+    <Content Include="Paginas\Departamento.html" />
     <Content Include="Paginas\Estilos\bootstrap.css.map" />
     <Content Include="Paginas\Estilos\bootstrap.min.css.map" />
     <Content Include="Paginas\Estilos\css\slides.css" />
@@ -183,9 +186,12 @@
     <Content Include="Paginas\Index.html" />
     <Content Include="Paginas\Proveedores.html" />
     <Content Include="Paginas\Repuestos.html" />
+    <Content Include="Paginas\Scripts\Categorias.js" />
+    <Content Include="Paginas\Scripts\Ciudades.js" />
     <Content Include="Paginas\Scripts\Comunes\Combos.js" />
     <Content Include="Paginas\Scripts\Comunes\Comunes.js" />
     <Content Include="Paginas\Scripts\Comunes\Tablas.js" />
+    <Content Include="Paginas\Scripts\Departamento.js" />
     <Content Include="Paginas\Scripts\Proveedores.js" />
     <Content Include="Paginas\Scripts\Repuestos.js" />
     <Content Include="Paginas\Scripts\Ventas.js" />
