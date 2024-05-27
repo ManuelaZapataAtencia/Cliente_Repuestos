@@ -111,10 +111,14 @@ async function EjecutarComando(Comando) {
         // Volver a llenar la tabla para ver las actualizaciones
         //LlenarTablaProductos();
         //Presenta el resultado en el html
+        $("#dvMensaje").removeClass("alert alert-danger");
+        $("#dvMensaje").addClass("alert alert-success");
         $("#dvMensaje").html(Resultado);
     }
     catch (error) {
         //Se presenta el error en el "dvMensaje" de la interfaz
+        $("#dvMensaje").removeClass("alert alert-success");
+        $("#dvMensaje").addClass("alert alert-danger");
         $("#dvMensaje").html(error);
     }
 }
@@ -141,6 +145,7 @@ async function Consultar() {
     }
     catch (error) {
         //Se presenta el error en el "dvMensaje" de la interfaz
+        $("#dvMensaje").addClass("alert alert-danger");
         $("#dvMensaje").html(error);
     }
 }
