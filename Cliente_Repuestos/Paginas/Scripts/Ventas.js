@@ -2,8 +2,8 @@
 jQuery(function () {
     $("#dvMenu").load("../Paginas/Menu.html");
     //Invoca la función que llena el combo de tipos de producto
-    //LlenarComboCategoria();
-    LlenarComboRepuestos()
+    LlenarComboCategoria();
+    //LlenarComboRepuestos()
     //LlenarTablaVentas();
     LlenarTabla();
     $("#btnInsertar").on("click", function () {
@@ -17,18 +17,19 @@ jQuery(function () {
     });
 });
 
-async function LlenarTabla() {
-    let CodigoVenta = $("#txtCodigoVenta").val();
-    LlenarTablaXServiciosAuth("http://localhost:53166/api/Ventas/LlenarTablaVenta?CodigoVenta=", + CodigoVenta, "#tblVentas");
+function LlenarTabla() {
+    //let CodigoVenta = $("#txtCodigoVenta").val();
+    LlenarTablaXServicios("http://localhost:53166/api/Ventas/LlenarTablaVenta", "#tblVentas");
 }
 
-//async function LlenarComboCategoria() {
-//    let rpta = await LlenarComboXServicios("http://localhost:53166/api/Categoria/LlenarCombo", "#cboCategoria");
-//    LlenarComboRepuestos();
-//}
+async function LlenarComboCategoria() {
+    let rpta = await LlenarComboXServicios("http://localhost:53166/api/Categoria/LlenarCombo", "#cboCategoria");
+    LlenarComboRepuestos();
+}
 
 async function LlenarComboRepuestos() {
-    let rpta = await LlenarComboXServicios("http://localhost:53166/api/Repuesto/LlenarCombo", "#cboRepuesto");
+    let CodigoCategoria = $("#cboCategoria").val();
+    let rpta = await LlenarComboXServicios("http://localhost:53166/api/Repuesto/LlenarCombo?CodigoCategoria=" + CodigoCategoria, "#cboRepuesto");
     PresentarValorUnitario();
 }
 
@@ -128,20 +129,18 @@ async function Eliminar(codigoVenta) {
 //}
 
 async function EjecutarComando(Comando) {
-    let codigo_venta = $("#txtCodigoVenta").val();
     let nombre_cliente = $("#txtNombreCompleto").val();
-    let codigo_repuesto = $("#cboRepuesto").val();
+    let dato = $("#cboRepuesto").val();
+    let codigo_repuesto = parseInt(dato.split('|')[0]);
     let cantidad = $("#txtCantidad").val();
-    let precio_total = $("#txtTotal").val();
+    let valor_total = $("#txtTotal").val();
 
     //Crear la estructura json
     let DatosVenta = {
-        codigo: codigo_venta,
-        fecha_venta: fecha_venta,
         codigo_repuesto: codigo_repuesto,
         cantidad: cantidad,
         nombre_cliente: nombre_cliente,
-        precio_total: precio_total
+        valor_total: valor_total
     }
     //Fetch para grabar en la base de datos
     try {
@@ -157,6 +156,8 @@ async function EjecutarComando(Comando) {
         // Volver a llenar la tabla para ver las actualizaciones
         
         //Presenta el resultado en el html
+        $("#dvMensaje").removeClass("alert alert-danger");
+        $("#dvMensaje").addClass("alert alert-success");
         $("#dvMensaje").html(Resultado);
     }
     catch (error) {

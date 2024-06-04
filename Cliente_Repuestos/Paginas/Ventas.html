@@ -79,12 +79,12 @@
                                 <div class="card-body">
                                     <form id="frmIncapacidades">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <!--<div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtCodigoVenta">Código venta</label>
                                                     <input type="text" class="form-control" id="txtCodigoVenta" placeholder="Código">
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtCedula">Cédula Cliente</label>
@@ -97,18 +97,18 @@
                                                     <input type="text" class="form-control" id="txtNombreCompleto" placeholder="" disabled>
                                                 </div>
                                             </div>
-                                            <!--<div class="col-md-3">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="cboCategoria">Categoria</label>
-                                                    <select id="cboCategoria" class="form-control">
+                                                    <select id="cboCategoria" class="form-control" onchange="LlenarComboRepuestos()">
                                                         <option value="0">SELECCIONAR</option>
                                                     </select>
                                                 </div>
-                                            </div>-->
+                                            </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="cboRepuesto">Repuesto</label>
-                                                    <select id="cboRepuesto" class="form-control">
+                                                    <select id="cboRepuesto" class="form-control" onchange="PresentarValorUnitario()">
                                                         <option value="0">SELECCIONAR</option>
                                                     </select>
                                                 </div>
@@ -124,10 +124,10 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="txtCantidad">Cantidad</label>
-                                                    <input type="number" class="form-control" id="txtCantidad" value="1" placeholder="">
+                                                    <input type="number" class="form-control" id="txtCantidad" value="1" placeholder="" onchange="CalcularSubtotal()">
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="txtTotal">Subtotal</label>
                                                     <input type="text" class="form-control" id="txtTotal" placeholder="" disabled>
@@ -147,19 +147,23 @@
                                                 <br />
                                                 <button type="button" id="btnConsultar" class="btn-block btn-lg btn-custom rounded-pill shadow">Consultar Cliente</button>
                                             </div>
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnGenerar" class="btn-block btn-lg btn-custom rounded-pill shadow">Generar Factura</button>
+                                            </div>
                                         </div>
                                     </form>
                                     <br>
                                     <table id="tblVentas" class="table table-hover">
                                         <thead>
                                             <tr>
+                                                <th>Proceso</th>   
                                                 <th>Código</th>
                                                 <th>Fecha de venta</th>
                                                 <th>Categoria</th>
                                                 <th>Repuesto</th>
                                                 <th>Cantidad</th>
                                                 <th>Precio</th>
-                                                <th>Subtotal</th>
                                             </tr>
                                         </thead>
                                     </table>
