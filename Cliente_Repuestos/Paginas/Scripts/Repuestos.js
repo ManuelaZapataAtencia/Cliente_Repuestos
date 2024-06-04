@@ -86,7 +86,7 @@ async function EjecutarComando(Comando) {
     let codigo = $("#txtCodigo").val();
     let nombre = $("#txtNombre").val();
     let descripcion = $("#txtDescripcion").val();
-    let precio = $("#txtPrecio").val();
+    let valor_unitario = $("#txtPrecio").val();
     let categoria = $("#cboCategoria").val();
 
     //Crear la estructura json
@@ -94,7 +94,7 @@ async function EjecutarComando(Comando) {
         codigo: codigo,
         nombre: nombre,
         descripcion: descripcion,
-        precio: precio,
+        valor_unitario: valor_unitario,
         codigo_categoria: categoria
     }
     //Fetch para grabar en la base de datos
@@ -140,7 +140,7 @@ async function Consultar() {
         //Las respuestas se escriben en el html
         $("#txtNombre").val(Resultado.nombre);
         $("#txtDescripcion").val(Resultado.descripcion);
-        $("#txtPrecio").val(Resultado.precio);
+        $("#txtPrecio").val(Resultado.valor_unitario);
         $("#cboCategoria").val(Resultado.codigo_categoria);
     }
     catch (error) {

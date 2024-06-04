@@ -81,17 +81,31 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCodigo">Código venta</label>
-                                                    <input type="text" class="form-control" id="txtCodigo" placeholder="Código">
+                                                    <label for="txtCodigoVenta">Código venta</label>
+                                                    <input type="text" class="form-control" id="txtCodigoVenta" placeholder="Código">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="dtFechaVenta">Fecha venta</label>
-                                                    <input type="date" class="form-control" id="dtFechaVenta" placeholder="Fecha Venta">
+                                                    <label for="txtCedula">Cédula Cliente</label>
+                                                    <input type="text" class="form-control" id="txtCedula" placeholder="">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtNombreCompleto">Nombre Cliente</label>
+                                                    <input type="text" class="form-control" id="txtNombreCompleto" placeholder="" disabled>
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="cboCategoria">Categoria</label>
+                                                    <select id="cboCategoria" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
+                                                    </select>
+                                                </div>
+                                            </div>-->
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="cboRepuesto">Repuesto</label>
                                                     <select id="cboRepuesto" class="form-control">
@@ -99,27 +113,31 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtCantidad">Cantidad</label>
-                                                    <input type="text" class="form-control" id="txtCantidad" placeholder="Cantidad">
+                                                    <label for="txtUnitario">Valor Unitario</label>
+                                                    <input type="text" class="form-control" id="txtUnitario" placeholder="" disabled>
+                                                    <input type="text" class="form-control" id="txtValorUnitario" placeholder="" hidden>
+                                                    <input type="text" class="form-control" id="txtCodigoRepuesto" placeholder="" hidden>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="txtValor">Valor total</label>
-                                                    <input type="text" class="form-control" id="txtValor" placeholder="Valor Total" disabled>
+                                                    <label for="txtCantidad">Cantidad</label>
+                                                    <input type="number" class="form-control" id="txtCantidad" value="1" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtTotal">Subtotal</label>
+                                                    <input type="text" class="form-control" id="txtTotal" placeholder="" disabled>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-custom rounded-pill shadow">Insertar</button>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <br />
-                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-custom rounded-pill shadow">Actualizar</button>
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-custom rounded-pill shadow">Agregar</button>
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
@@ -127,7 +145,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <br />
-                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-custom rounded-pill shadow">Consultar</button>
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-custom rounded-pill shadow">Consultar Cliente</button>
                                             </div>
                                         </div>
                                     </form>
@@ -137,10 +155,11 @@
                                             <tr>
                                                 <th>Código</th>
                                                 <th>Fecha de venta</th>
+                                                <th>Categoria</th>
                                                 <th>Repuesto</th>
                                                 <th>Cantidad</th>
                                                 <th>Precio</th>
-                                                <th>Valor Total</th>
+                                                <th>Subtotal</th>
                                             </tr>
                                         </thead>
                                     </table>
