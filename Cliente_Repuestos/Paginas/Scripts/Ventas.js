@@ -9,11 +9,11 @@ jQuery(function () {
     $("#btnInsertar").on("click", function () {
         EjecutarComando("POST");
     });
-    $("#btnEliminar").on("click", function () {
-        EjecutarComando("DELETE");
-    });
     $("#btnConsultar").on("click", function () {
         Consultar();
+    });
+    $("#btnCalcular").on("click", function () {
+        Calcular();
     });
 });
 
@@ -49,6 +49,24 @@ function CalcularSubtotal() {
     $("#txtTotal").val(Cantidad * ValorUnitario);
 }
 
+async function Calcular() {
+    var label = document.getElementById('lblTotalPagar');
+    //Fetch para grabar en la base de datos
+    try {
+        const Respuesta = await fetch("http://localhost:53166/api/Ventas/CalcularTotal",
+            {
+                method: "GET",
+                mode: "cors",
+                headers: { "Content-Type": "application/json" }
+            });
+        const Resultado = await Respuesta.json();
+        label.innerText = "El total a pagar es: " + Resultado + "";
+    }
+    catch (error) {
+        $("#dvMensaje").html(error);
+    }
+}
+
 async function Eliminar(codigoVenta) {
     try {
         const Respuesta = await fetch("http://localhost:53166/api/Ventas/EliminarVenta?codigoVenta=" + codigoVenta,
@@ -66,6 +84,67 @@ async function Eliminar(codigoVenta) {
     catch (_error) {
         //Presentar a respuesta del error en el html
         $("#dvMensaje").html(_error);
+    }
+}
+
+async function EjecutarComando(Comando) {
+    let nombre_cliente = $("#txtNombreCompleto").val();
+    let dato = $("#cboRepuesto").val();
+    let codigo_repuesto = parseInt(dato.split('|')[0]);
+    let cantidad = $("#txtCantidad").val();
+    let valor_total = $("#txtTotal").val();
+
+    //Crear la estructura json
+    let DatosVenta = {
+        codigo_repuesto: codigo_repuesto,
+        cantidad: cantidad,
+        nombre_cliente: nombre_cliente,
+        valor_total: valor_total
+    }
+    //Fetch para grabar en la base de datos
+    try {
+        const Respuesta = await fetch("http://localhost:53166/api/Ventas/AgregarProducto",
+            {
+                method: Comando,
+                mode: "cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(DatosVenta)
+            });
+        //Se lee la respuesta y se convierte a json
+        const Resultado = await Respuesta.json();
+        // Volver a llenar la tabla para ver las actualizaciones
+
+        //Presenta el resultado en el html
+        $("#dvMensaje").removeClass("alert alert-danger");
+        $("#dvMensaje").addClass("alert alert-success");
+        $("#dvMensaje").html(Resultado);
+    }
+    catch (error) {
+        //Se presenta el error en el "dvMensaje" de la interfaz
+        $("#dvMensaje").html(error);
+    }
+}
+
+async function Consultar() {
+
+    let cedula = $("#txtCedula").val();
+    $("#dvMensaje").html("");
+    //Fetch para grabar en la base de datos
+    try {
+        const Respuesta = await fetch("http://localhost:53166/api/Cliente?cedula=" + cedula,
+            {
+                method: "GET",
+                mode: "cors",
+                headers: { "Content-Type": "application/json" }
+            });
+        //Se lee la respuesta y se convierte a json
+        const Resultado = await Respuesta.json();
+        //Las respuestas se escriben en el html
+        $("#txtNombreCompleto").val(Resultado.nombre);
+    }
+    catch (error) {
+        //Se presenta el error en el "dvMensaje" de la interfaz
+        $("#dvMensaje").html(error);
     }
 }
 
@@ -127,64 +206,3 @@ async function Eliminar(codigoVenta) {
 //    }
 //    PresentarValorUnitario();
 //}
-
-async function EjecutarComando(Comando) {
-    let nombre_cliente = $("#txtNombreCompleto").val();
-    let dato = $("#cboRepuesto").val();
-    let codigo_repuesto = parseInt(dato.split('|')[0]);
-    let cantidad = $("#txtCantidad").val();
-    let valor_total = $("#txtTotal").val();
-
-    //Crear la estructura json
-    let DatosVenta = {
-        codigo_repuesto: codigo_repuesto,
-        cantidad: cantidad,
-        nombre_cliente: nombre_cliente,
-        valor_total: valor_total
-    }
-    //Fetch para grabar en la base de datos
-    try {
-        const Respuesta = await fetch("http://localhost:53166/api/Ventas/AgregarProducto",
-            {
-                method: Comando,
-                mode: "cors",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(DatosVenta)
-            });
-        //Se lee la respuesta y se convierte a json
-        const Resultado = await Respuesta.json();
-        // Volver a llenar la tabla para ver las actualizaciones
-        
-        //Presenta el resultado en el html
-        $("#dvMensaje").removeClass("alert alert-danger");
-        $("#dvMensaje").addClass("alert alert-success");
-        $("#dvMensaje").html(Resultado);
-    }
-    catch (error) {
-        //Se presenta el error en el "dvMensaje" de la interfaz
-        $("#dvMensaje").html(error);
-    }
-}
-
-async function Consultar() {
-    
-    let cedula = $("#txtCedula").val();
-    $("#dvMensaje").html("");
-    //Fetch para grabar en la base de datos
-    try {
-        const Respuesta = await fetch("http://localhost:53166/api/Cliente?cedula=" + cedula,
-            {
-                method: "GET",
-                mode: "cors",
-                headers: { "Content-Type": "application/json" }
-            });
-        //Se lee la respuesta y se convierte a json
-        const Resultado = await Respuesta.json();
-        //Las respuestas se escriben en el html
-        $("#txtNombreCompleto").val(Resultado.nombre);
-    }
-    catch (error) {
-        //Se presenta el error en el "dvMensaje" de la interfaz
-        $("#dvMensaje").html(error);
-    }
-}

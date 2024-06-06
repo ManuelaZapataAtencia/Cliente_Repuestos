@@ -9,12 +9,12 @@
 
 async function EjecutarComando(Comando) {
     //Se captura la información del empleado
-    let codigo = $("#txtCodigo").val();
+    
     let nombre = $("#txtNombre").val();
 
     //Crear la estructura json
     let DatosCategoria = {
-        codigo: codigo,
+       
         nombre: nombre,
     }
     //Fetch para grabar en la base de datos
