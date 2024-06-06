@@ -194,6 +194,7 @@
     <Content Include="Paginas\Scripts\Comunes\Comunes.js" />
     <Content Include="Paginas\Scripts\Comunes\Tablas.js" />
     <Content Include="Paginas\Scripts\Departamento.js" />
+    <Content Include="Paginas\Scripts\Index.js" />
     <Content Include="Paginas\Scripts\Login.js" />
     <Content Include="Paginas\Scripts\Proveedores.js" />
     <Content Include="Paginas\Scripts\Registro.js" />
